@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }: any) => {
 
   const login = (email: string, password: string): boolean => {
 
-    if (email === "user@mail.com" && password === "123") {
+    if (email === "user@mail.com" && password === "123456") {
       setUser(email);
       return true;
     }

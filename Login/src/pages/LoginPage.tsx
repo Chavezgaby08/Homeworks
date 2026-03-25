@@ -2,13 +2,16 @@ import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
+import { signInWithEmailAndPassword } from "firebase/auth";
+
+import { auth } from "../FireBase/config";
+
 import { useAuth } from "../hooks/useAuth";
 
 function LoginPage(){
 
-    const {login} = useAuth();
-
     const navigate = useNavigate();
+    const { login } = useAuth();
 
     const [form, setForm] = useState({
         email: "",
@@ -23,17 +26,16 @@ function LoginPage(){
         });
     };
 
-    const handleLogin = () => {
+    const handleLogin = async () => {
 
-        const success = login(form.email, form.password);
-
-        if (success) {
-
+        try {
+            await signInWithEmailAndPassword(
+                auth, form.email, form.password
+            );
+            login(form.email, form.password);
             navigate("/books");
-
-        } else {
-
-            alert("Las credenciales son incorrectas");
+        }catch (error: any) {
+            alert("Error al iniciar sesión: " + error.message);
         }
     };
 
