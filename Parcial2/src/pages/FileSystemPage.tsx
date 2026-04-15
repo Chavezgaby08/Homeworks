@@ -53,7 +53,7 @@ function FileSystemPage() {
     return (
       <div className="tree-node">
         <p>
-          {node.value.type === "folder" ? "📁" : "📄"} {node.value.name} -{" "}
+          {node.value.type === "folder" ? "📂‣" : "📜‣"} {node.value.name} -{" "}
           {node.value.user}
         </p>
         {node.children.map((child: any) => renderTree(child))}

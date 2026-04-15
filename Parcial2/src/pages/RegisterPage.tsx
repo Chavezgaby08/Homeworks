@@ -20,11 +20,22 @@ function RegisterPage() {
   };
 
   return (
-    <div>
+    <div className="register-page">
       <h1>Register</h1>
-      <input placeholder="Correo" onChange={e => setForm({...form, email: e.target.value})}/>
-      <input type="password" placeholder="Contraseña" onChange={e => setForm({...form, password: e.target.value})}/>
-      <button onClick={handleRegister}>Registrarse</button>
+      <div className="register-form">
+        <input 
+          placeholder="Correo" 
+          onChange={e => setForm({...form, email: e.target.value})}
+          className="register-input"
+        />
+        <input 
+          type="password" 
+          placeholder="Contraseña" 
+          onChange={e => setForm({...form, password: e.target.value})}
+          className="register-input"
+        />
+        <button onClick={handleRegister} className="register-button">Registrarse</button>
+      </div>
     </div>
   );
 }

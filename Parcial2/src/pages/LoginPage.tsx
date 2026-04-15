@@ -23,13 +23,23 @@ function LoginPage() {
   };
 
   return (
-    <div>
+   <div className="login-page">
       <h1>Login</h1>
-      <input placeholder="Correo" onChange={e => setForm({...form, email: e.target.value})}/>
-      <input type="password" placeholder="Contraseña" onChange={e => setForm({...form, password: e.target.value})}/>
-      <button onClick={handleLogin}>Ingresar</button>
-      <p>¿No tienes cuenta?</p>
-      <Link to="/register">Registrarse</Link>
+      <div className="login-form">
+        <input 
+          placeholder="Correo" 
+          onChange={e => setForm({...form, email: e.target.value})}
+          className="login-input"
+        />
+        <input 
+          type="password" 
+          placeholder="Contraseña" 
+          onChange={e => setForm({...form, password: e.target.value})}
+          className="login-input"
+        />
+        <button onClick={handleLogin} className="login-button">Ingresar</button>
+      </div>
+      <p className="login-link">¿No tienes cuenta? <Link to="/register">Registrarse</Link></p>
     </div>
   );
 }
